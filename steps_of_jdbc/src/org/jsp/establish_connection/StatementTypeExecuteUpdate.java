@@ -17,10 +17,12 @@ public class StatementTypeExecuteUpdate {
 			Connection connection = DriverManager.getConnection(url, user, password);
 			
 			Statement statement = connection.createStatement();
-//			String sql = "INSERT INTO users VALUES(101, 'Ram', 'ram@gmail.com', 'sita@123', '7777777777')";
+			String sql = "INSERT INTO users VALUES(103, 'Hanuman', 'hanuman@gmail.com', 'sita@123', '7777777777')";
+//					+ "(102, 'Sita', 'sita@gmail.com', 'sita@123', '7777777777')"
+//					+ "(103, 'Hanuman', 'hanuman@gmail.com', 'sita@123', '7777777777')";
 //			String sql = "UPDATE users SET email='ram.sita@gmail.com' WHERE id=101";
 //			String sql = "SELECT * FROM users";
-			String sql = "DELETE FROM users WHERE id = 101";
+//			String sql = "DELETE FROM users WHERE id = 101";
 			
 			System.out.println(statement.executeUpdate(sql));
 			
