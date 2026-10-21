@@ -108,12 +108,9 @@ public class ArithmeticOperations extends HttpServlet{
 				if(operator.equals("add")) result = n1+n2; 
 				else if(operator.equals("subtract")) result = n1-n2; 
 				else if(operator.equals("multiply")) result = n1*n2; 
-				else if(operator.equals("divide")) {
-					if(n2 != 0) result = n1/n2;
-				}
+				else if(operator.equals("divide")) result = n1/n2;
 				
-				if(!(operator.equals("divide") && n2 == 0)) out.println("<h2>%d</h2>".formatted(result));
-				else out.println("<h2>Can't divide by zero</h2>");
+				out.println("<h2>%d</h2>".formatted(result));
 			}
 			out.println("""
 					</body>
