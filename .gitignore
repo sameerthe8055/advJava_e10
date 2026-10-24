@@ -99,6 +99,7 @@ Desktop.ini
 *.db
 *.sqlite
 *.sqlite3
+*.jar
 
 # =========================
 # Application logs
