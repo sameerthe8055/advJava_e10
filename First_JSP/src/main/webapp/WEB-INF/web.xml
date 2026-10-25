@@ -12,13 +12,5 @@
     <welcome-file>default.xhtml</welcome-file>
   </welcome-file-list>
   
-   <error-page>
-  	<exception-type>java.lang.ArithmeticException</exception-type>
-  	<location>/errorArithmetic.html</location>
-  </error-page>
-  
-  <error-page>
-  	<error-code>404</error-code>
-  	<location>/resourceNotFound.html</location>
-  </error-page>
+   
 </web-app>
