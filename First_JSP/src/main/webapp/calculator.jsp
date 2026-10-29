@@ -7,18 +7,28 @@
 <title>Insert title here</title>
 </head>
 <style>
+	body{
+		width: vw;
+		height: vh;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		padding-top: 15%;
+		
+	}
 	button{
 		padding: px 20px;
 	}
 </style>
-<body align="center">
-	
+<body >
+
 	<h1>Calculator</h1>
 	<form action="calculator.jsp">
 		N1: <input type="number" name="n1">
-		<br>
+		<br><br>
 		N2: <input type="number" name="n2">
-		<br>
+		<br><br>
 		<select name="op">
 			<option value="add">Add</option>		
 			<option value="sub">Sub</option>		
