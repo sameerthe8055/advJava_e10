@@ -8,9 +8,14 @@ public class EntityController {
 	public static void main(String[] args) {
 		EntityDao dao = new EntityDao();
 		
-		Passport passport = dao.getPassport(2);
-		System.out.println(passport);
+		// delete/remove
+//		dao.removePerson(2);
 		
+//		Passport passport = dao.getPassport(2);
+//		System.out.println(passport);
+		
+		
+		// add just person without passport/associated entity
 //		Person p4 = new Person();
 //		p4.setPid(3);
 //		p4.setName("Mantri");
@@ -43,7 +48,7 @@ public class EntityController {
 //		p2.setEmailId("rani@email.com");
 //		p2.setAge(20);
 //		p2.setPassport(pp2);
-//		
+//	
 //		dao.addPerson(p2);
 //		
 //		dao.findPerson(1);
