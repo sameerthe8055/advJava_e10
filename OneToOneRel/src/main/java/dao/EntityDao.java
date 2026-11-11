@@ -1,9 +1,12 @@
 package dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import dto.Passport;
 import dto.Person;
@@ -59,6 +62,20 @@ public class EntityDao {
 		transaction.commit();
 	}
 	
+	public void updatePersonName(int pId, String newName) {
+		Person managedPerson =  manager.find(Person.class, pId);
+		if(managedPerson != null) {
+			transaction.begin();
+			
+			manager.detach(managedPerson);
+			managedPerson.setName(newName);
+			System.out.println( manager.merge(managedPerson) );
+			transaction.commit();
+		}else {
+			throw new PersonNotFoundException();
+		}
+	}
+	
 	public Passport getPassport(int pId) {
 		Person person =  findPerson(pId);	
 		if(person != null) {
@@ -68,6 +85,34 @@ public class EntityDao {
 				throw new PassportNotAssociatedException();
 		}else
 			throw new PersonNotFoundException();
+	}
+	
+	public void updatePersonEmailAndPPLocatlity(int pId, String newEmail, String newLocality) {
+		Person managedPerson =  manager.find(Person.class, pId);
+		
+		if(managedPerson != null) {
+			transaction.begin();
+			manager.detach(managedPerson);
+			managedPerson.setEmailId(newEmail);
+			if(managedPerson.getPassport() != null)
+				managedPerson.getPassport().setLocality(newLocality);
+			else
+				throw new PassportNotAssociatedException();
+			System.out.println("After merge operation: \n" + manager.merge(managedPerson));
+			transaction.commit();
+			
+		}
+		else {
+			throw new PersonNotFoundException();
+		}
+		
+		
+	}
+	public List<Person> findAll(){
+		String query = "SELECT p FROM Person p";
+		Query q =  manager.createQuery(query);
+		List<Person> persons =  q.getResultList();
+		return persons;
 	}
 	
 

@@ -20,6 +20,10 @@ public class Person {
 	public int getPid() {
 		return Pid;
 	}
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private Aadhar aadhar;
+	
 	public void setPid(int pid) {
 		Pid = pid;
 	}
@@ -47,11 +51,20 @@ public class Person {
 	public void setPassport(Passport passport) {
 		this.passport = passport;
 	}
+	
 	@Override
 	public String toString() {
 		return "Person [Pid=" + Pid + ", name=" + name + ", age=" + age + ", emailId=" + emailId + ", passport="
-				+ passport + "]";
+				+ passport + ", aadhar=" + aadhar + "]";
 	}
+	
+	public Aadhar getAadhar() {
+		return aadhar;
+	}
+	public void setAadhar(Aadhar aadhar) {
+		this.aadhar = aadhar;
+	}
+	
 	
 	
 	

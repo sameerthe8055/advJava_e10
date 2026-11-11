@@ -1,12 +1,63 @@
 package controller;
 
+import java.util.List;
+
 import dao.EntityDao;
+import dto.Aadhar;
 import dto.Passport;
 import dto.Person;
 
 public class EntityController {
 	public static void main(String[] args) {
 		EntityDao dao = new EntityDao();
+		
+		List<Person> persons = dao.findAll();
+		for(Person p: persons) {
+			System.out.println(p);
+		}
+		
+		// Update person email and his licality(passport field)
+//		dao.updatePersonEmailAndPPLocatlity(5, "sameer@gmail.com", "India");
+		
+		// Updating Person details(with detach)
+		/*
+		 *  Detach functon will make the 
+		 *  _____________________________
+		 *  Managed Entity to DETACH from PERSISTENCE CONTEXT
+		 *  _________________________________________________
+		 *  
+		 *  In an Upadation Operation, If the managed Entity is not
+		 *  been Detached then any changes made to Managed Entity will be
+		 *  identified by Automatically by the Hibernate and Changes get 
+		 *  applied(Even without calling merge())
+		 *  Mandatory:- Transaction should begin and commit
+		 */
+//		dao.updatePersonName(1, "Raju");
+		
+		// lets associate another Associated Entity(Aadhar) to Owned(Person) Entity;		
+//		Aadhar aadhar = new Aadhar();
+//		aadhar.setAadharNumber(123456789012L);
+//		aadhar.setAddress("Gandhi Nagar, Nandyal");
+//		aadhar.setPincode(518501);
+//		
+//		Passport pp5 = new Passport();
+//		pp5.setPassportId(1005);
+//		pp5.setPassportNumber("APNDL52345");
+//		pp5.setIssueDate("05-05-2026");
+//		pp5.setExpiryDate("04-05-2030");
+//		pp5.setLocality("Indian");
+//		
+//		Person p5 = new Person();
+//		p5.setPid(5);
+//		p5.setName("Sameer");
+//		p5.setEmailId("sameer@gmail.com");
+//		p5.setAge(22);
+//		p5.setPassport(pp5);
+//		p5.setAadhar(aadhar);
+		
+//		dao.addPerson(p5);
+		
+//		System.out.println(dao.findPerson(5));
 		
 		// delete/remove
 //		dao.removePerson(2);
