@@ -52,7 +52,7 @@ public class BirthCertificate {
 	public String toString() {
 		return "BirthCertificate [cId=" + cId + ", birthTime=" + birthTime + ", birthDate=" + birthDate + ", location="
 				+ location + ", student=" + 
-				(student != null ?"[sId=" + student.getsId() + ", name=" + student.getName() + ", age=" + student.getAge() + ", email=" + student.getEmail() + ", gender=" + student.getGender()+ "]" : "[ ]")+ "]";
+				(student != null ?"[sId=" + student.getsId() + ", name=" + student.getName() + ", age=" + student.getAge() + ", email=" + student.getEmail() + ", gender=" + student.getGender()+ "]" : "[]")+ "]";
 	}
 
 	

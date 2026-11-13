@@ -15,7 +15,10 @@ public class Student {
 	private String email;
 	private String gender;
 	
-	@OneToOne(cascade = CascadeType.ALL)
+	// orphanRemoval = true(byfault its false) makes the unrefernced inverse entities to be removed from DB when replaced by new inverse entities
+	// for example if we replace new certificate with old one, then old orphan cerificate will be removed after its replaced by new certificate.
+	// if set false the old one exists in db but not referred by any Owner enitity.
+	@OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
 	private BirthCertificate birthCertificate;
 	
 	
@@ -59,8 +62,8 @@ public class Student {
 	public String toString() {
 		return "Student [sId=" + sId + ", name=" + name + ", age=" + age + ", email=" + email + ", gender=" + gender
 				+ ", birthCertificate=" +  
-				(birthCertificate != null ?"[ + cId=" + birthCertificate.getcId() + ", birthTime=" + birthCertificate.getBirthTime() + ", birthDate=" + birthCertificate.getBirthDate() + ", location="
-						+ birthCertificate.getLocation() + "]" : "[ ]")+ "]";
+				(birthCertificate != null ?"[cId=" + birthCertificate.getcId() + ", birthTime=" + birthCertificate.getBirthTime() + ", birthDate=" + birthCertificate.getBirthDate() + ", location="
+						+ birthCertificate.getLocation() + "]" : "[]")+ "]";
 	}
 	
 	
